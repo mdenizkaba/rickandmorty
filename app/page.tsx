@@ -4,7 +4,14 @@ import { getQueryClient } from "@/lib/getQueryClient";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { fetchCharacters } from "@/lib/api";
 
-export default async function Home({ searchParams }: { searchParams: { status?: string; gender?: string } }) {
+interface PageProps {
+  searchParams: {
+    status?: string;
+    gender?: string;
+  };
+}
+
+export default async function Home({ searchParams }: PageProps) {
   const queryClient = getQueryClient();
   const status = searchParams.status || "";
   const gender = searchParams.gender || "";

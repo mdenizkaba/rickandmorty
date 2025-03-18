@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   try {
     const { data } = await axios.get(`https://rickandmortyapi.com/api/character?${params}`);
     return NextResponse.json(data);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Veri alınamadı" }, { status: 500 });
   }
 }
